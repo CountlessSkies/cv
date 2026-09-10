@@ -94,6 +94,18 @@
         <footer><p>Let’s build better creative workflows.</p><a href="mailto:nguyenduydung2007@gmail.com">nguyenduydung2007@gmail.com ↗</a></footer>
       </section>
 
+      <section class="page page-personal">
+        <header class="personal-header"><p class="eyebrow">Personal R&amp;D / In progress</p><h2>Metric plane texture<br />mapping for interiors<span>.</span></h2><p>A geometry-first prototype for visualizing physical flooring materials in a room photograph.</p></header>
+        <div class="personal-visual"><img src="assets/portfolio/metric-plane-texture-mapping.png" alt="Perspective-correct porcelain flooring texture mapping prototype" /><p>Perspective-correct floor texture preview</p></div>
+        <div class="personal-content">
+          <div><p class="section-label">The problem</p><p>Replace a room-floor material from one image while preserving the floor plane, physical tile scale, perspective, grout, and existing lighting cues.</p></div>
+          <div><p class="section-label">Approach</p><p>MoGe-2 provides metric depth, points, normals, and camera intrinsics. The prototype fits a 3D plane with RANSAC, maps a repeated real-world texture through a plane homography, and blends grout and lighting into the preview.</p></div>
+        </div>
+        <div class="personal-stack"><p class="section-label">Stack</p><div class="chips"><span>Python</span><span>MoGe-2</span><span>OpenCV</span><span>RANSAC</span><span>NumPy</span><span>PIL</span><span>Metric geometry</span></div></div>
+        <div class="personal-status"><p><b>Current prototype:</b> metric plane fitting, perspective grid validation, physical-size texture tiling, grout, lighting blend, and geometry-based support masking.</p><a href="https://github.com/CountlessSkies/roomvo-clone" target="_blank" rel="noreferrer">View source on GitHub ↗</a></div>
+        <footer><p>Personal exploration of computer vision, geometry, and material visualization.</p><a href="https://github.com/CountlessSkies/roomvo-clone" target="_blank" rel="noreferrer">github.com/CountlessSkies/roomvo-clone ↗</a></footer>
+      </section>
+
       <section class="page page-portfolio">
         <header class="portfolio-header">
           <div><p class="eyebrow">Visual portfolio</p><h2>Selected frames<br />from production<span>.</span></h2></div>
