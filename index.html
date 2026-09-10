@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="portfolio-link.css" />
     <link rel="stylesheet" href="floating-pdf-button.css" />
+    <link rel="stylesheet" href="share-button.css" />
   </head>
   <body>
     <main class="resume">
@@ -178,5 +179,6 @@
       </section>
     </main>
     <button class="save-pdf" style="margin: 0" type="button" onclick="window.print()">Save CV as PDF ↓</button>
+    <button class="share-cv" type="button" onclick="if (navigator.share) { navigator.share({ title: document.title, url: location.href }); } else { navigator.clipboard.writeText(location.href).then(() => alert('CV link copied.')); }">Share CV ↗</button>
   </body>
 </html>
