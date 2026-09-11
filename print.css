@@ -1,0 +1,168 @@
+/* A print layout that keeps the visual language of the site without letting
+   the browser split cards, jobs, or the footer across arbitrary sheets. */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    width: 210mm;
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .resume {
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  /* Let an A4 sheet break only between complete content blocks. A fixed
+     minimum page height and an absolute footer were the source of the gaps. */
+  .page,
+  .page-two {
+    width: auto;
+    min-height: 0;
+    padding: 16mm 18mm;
+    border: 0;
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  .page-two {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .hero,
+  .intro-grid,
+  .capabilities,
+  .job,
+  .continuation,
+  .tools-feature,
+  .realtime-project,
+  .bottom-grid,
+  .education article,
+  .portfolio-cta,
+  .tool-list a {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* A footer participates in normal document flow in print, so it can never
+     overlap content or reserve a blank band at the bottom of a sheet. */
+  footer,
+  .page-two footer {
+    position: static;
+    margin-top: 16mm;
+    left: auto;
+    right: auto;
+    bottom: auto;
+  }
+
+  /* Preserve the site's roomy structure, but reclaim just enough vertical
+     space for the first sheet to contain its complete introduction. */
+  .hero {
+    padding-bottom: 8mm;
+  }
+
+  .intro-grid {
+    padding: 7mm 0 8mm;
+  }
+
+  .capability-grid {
+    margin-top: 4mm;
+  }
+
+  .capability-grid article,
+  .capability-grid article + article {
+    min-height: 0;
+    padding-top: 4mm;
+    padding-bottom: 4mm;
+  }
+
+  .capability-grid h2 {
+    margin: 5mm 0 3mm;
+  }
+
+  .experience {
+    margin-top: 0;
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .tools-feature {
+    padding-top: 8mm;
+  }
+
+  .tools-intro {
+    padding: 5mm 0 6mm;
+  }
+
+  .project-highlights {
+    margin-top: 8mm;
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .realtime-project {
+    gap: 4px 18px;
+    margin-top: 8px;
+    padding: 12px 14px;
+  }
+
+  .realtime-project strong {
+    font-size: 16px;
+  }
+
+  .realtime-project.has-thumbnail {
+    grid-template-columns: 125px minmax(0, 1fr) auto;
+  }
+
+  .realtime-project.has-thumbnail img {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    height: 65px;
+    max-height: none;
+    margin-bottom: 0;
+  }
+
+  .realtime-project.has-thumbnail .project-kicker,
+  .realtime-project.has-thumbnail strong,
+  .realtime-project.has-thumbnail > span:last-of-type {
+    grid-column: 2;
+    grid-row: auto;
+  }
+
+  .realtime-project.has-thumbnail i {
+    grid-column: 3;
+    grid-row: 1 / 4;
+  }
+
+  .bottom-grid {
+    margin-top: 8mm;
+  }
+
+  .save-pdf,
+  .share-cv {
+    display: none !important;
+  }
+
+  .portfolio-cta:hover,
+  .tool-list a:hover,
+  .realtime-project:hover {
+    background: initial;
+    transform: none;
+  }
+
+  .portfolio-feature img,
+  .portfolio-tile img,
+  .personal-visual img,
+  .subsea-gallery img,
+  .motion-frame img {
+    animation: none;
+  }
+}
